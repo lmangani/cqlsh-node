@@ -11,8 +11,11 @@ var toColumns = function(data){
 exports.db = function(program){
 
   var config = {};
-  config.contactPoints = program.args || ['127.0.0.1:9042']
+  config.contactPoints = ['127.0.0.1:9042']
+  if (program.args.length>0) config.contactPoints = program.args;
   if (program.keyspace) config.keyspace = program.keyspace;
+
+  console.log(config);
 
   const client = new cassandra.Client(config);
 

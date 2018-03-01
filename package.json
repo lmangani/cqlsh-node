@@ -1,0 +1,32 @@
+{
+  "name": "cqlsh",
+  "version": "1.0.0",
+  "description": "cqlsh in nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmangani/cqlsh-node.git"
+  },
+  "keywords": [
+    "cql",
+    "cqlsh",
+    "cassandra",
+    "elassandra",
+    "client"
+  ],
+  "author": "Lorenzo Mangani <lorenzo.mangani@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lmangani/cqlsh-node/issues"
+  },
+  "homepage": "https://github.com/lmangani/cqlsh-node#readme",
+  "dependencies": {
+    "cassandra-driver": "^3.4.1",
+    "columnify": "^1.5.4",
+    "commander": "^2.14.1",
+    "oh-my-log": "^5.0.1"
+  }
+}

@@ -15,13 +15,11 @@ exports.db = function(program){
   if (program.args.length>0) config.contactPoints = program.args;
   if (program.keyspace) config.keyspace = program.keyspace;
 
-  console.log(config);
-
   const client = new cassandra.Client(config);
 
   if (program.debug){
     client.on('log', function(level, className, message, furtherInfo) {
-      logger('log event: %s -- %s', level, message);
+      logger('log event: %s:red -- %s:green', level, message);
     });
   }
 

@@ -19,6 +19,7 @@ program
   .option('-u, --username <string>', 'Authenticate as user', String)
   .option('-p, --password <string>', 'Authenticate using password', String)
   .option('-c, --cqlversion <string>', 'Specify a particular CQL version', String)
+  .option('-d, --debug <bool>', 'Debug Driver messages', Boolean)
   .parse(process.argv)
 
 if (!program.execute) program.help();

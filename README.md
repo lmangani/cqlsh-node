@@ -1,6 +1,18 @@
 # cqlsh-node
 Minimal CQLSH emulator for Nodejs. Only supports basic functionality.
 
+### Install
+```
+npm install -g cqlsh-node
+```
+
+#### Example 
+```
+cqlshjs -e "CREATE KEYSPACE examples WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1' }"
+```
+
+### Usage
+
 ```
   Usage: cqlshjs -e "SELECT ... limit 1" 127.0.0.1:9042
 

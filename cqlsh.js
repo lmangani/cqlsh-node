@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  * cqlsh node
  * (c) 2018 QXIP BV

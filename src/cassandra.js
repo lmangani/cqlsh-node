@@ -14,6 +14,10 @@ exports.db = function(program){
   config.contactPoints = ['127.0.0.1:9042']
   if (program.args.length>0) config.contactPoints = program.args;
   if (program.keyspace) config.keyspace = program.keyspace;
+  if (program.username && program.password) {
+    const authProvider = new cassandra.auth.PlainTextAuthProvider(program.username,program.password);
+    config.authProvider = authProvider;
+  }
 
   const client = new cassandra.Client(config);
 
@@ -32,8 +36,8 @@ exports.db = function(program){
 		}
 		return client.shutdown();
 	  })
-	  .catch(function (err) { 
-		logger('%s:red',err) 
+	  .catch(function (err) {
+		logger('%s:red',err)
 		return client.shutdown();
 	  });
 }

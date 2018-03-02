@@ -1,12 +1,31 @@
 const cassandra = require('cassandra-driver');
 const logger = require('./logger');
 const columnify = require('columnify')
+const vorpal = require('vorpal')()
 
 var toColumns = function(data){
   return columnify(JSON.parse(JSON.stringify(data)), {
     columnSplitter: ' | '
   });
 }
+
+const doQuery = function(client,query,keep){
+  client.execute(query)
+          .then(function(result){
+                if(result.rows){
+                  logger(toColumns(result.rows));
+                  logger("(%s Rows)", result.rows.length);
+                }
+                if(!keep) return client.shutdown();
+		else keep();
+          })
+          .catch(function (err) {
+                logger('%s:red',err)
+                if(!keep) return client.shutdown();
+		else keep();
+          });
+}
+
 
 exports.db = function(program){
 
@@ -23,17 +42,25 @@ exports.db = function(program){
     });
   }
 
-  const query = program.execute || '';
-  client.execute(query)
-  	  .then(function(result){
-		if(result.rows){
-		  logger(toColumns(result.rows));
- 		  logger("(%s Rows)", result.rows.length);
-		}
-		return client.shutdown();
-	  })
-	  .catch(function (err) { 
-		logger('%s:red',err) 
-		return client.shutdown();
-	  });
+  if(program.execute){
+    const query = program.execute || '';
+    doQuery(client,query);
+
+  } else {
+
+    logger('Connected to %s:blue',client.options.contactPoints);
+
+    vorpal
+      .delimiter('')
+      .catch('[query...]', 'CQL Shell')
+      .action(function (args, cb) {
+        doQuery(client,args.query.join(' '), cb );
+        // cb();
+    });
+    vorpal
+      .delimiter('cqlsh> ')
+      .show();
+  }
+
+
 }

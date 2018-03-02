@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  * cqlsh node
  * (c) 2018 QXIP BV
@@ -22,6 +24,6 @@ program
   .option('-d, --debug <bool>', 'Debug Driver messages', Boolean)
   .parse(process.argv)
 
-if (!program.execute) program.help();
+//if (!program.execute) program.help();
 
 cassandra.db(program);

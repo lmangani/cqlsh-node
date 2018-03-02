@@ -1,6 +1,6 @@
 {
   "name": "cqlsh-node",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Cassandra cqlsh emulator in nodejs",
   "main": "cqlsh.js",
   "bin": {
@@ -18,7 +18,8 @@
     "cqlsh",
     "cassandra",
     "elassandra",
-    "client"
+    "client",
+    "query"
   ],
   "author": "Lorenzo Mangani <lorenzo.mangani@gmail.com>",
   "license": "MIT",
@@ -30,6 +31,7 @@
     "cassandra-driver": "^3.4.1",
     "columnify": "^1.5.4",
     "commander": "^2.14.1",
-    "oh-my-log": "^5.0.1"
+    "oh-my-log": "^5.0.1",
+    "vorpal": "^1.12.0"
   }
 }

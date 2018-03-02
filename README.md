@@ -36,4 +36,4 @@ cqlsh> CREATE KEYSPACE examples WITH replication = {'class': 'SimpleStrategy', '
     -h, --help                     output usage information
 ```
 
-####### This project is Sponsored by [QXIP BV](http://qxip.net)
+###### This project is Sponsored by [QXIP BV](http://qxip.net)

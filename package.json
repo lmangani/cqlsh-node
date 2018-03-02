@@ -1,6 +1,6 @@
 {
   "name": "cqlsh-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cassandra cqlsh emulator in nodejs",
   "main": "cqlsh.js",
   "bin": {

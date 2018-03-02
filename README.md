@@ -1,5 +1,4 @@
-![image](https://user-images.githubusercontent.com/1423657/36921477-d3c68a5a-1e64-11e8-8301-9abac90cfc2f.png)
-
+<img width=150 src="https://user-images.githubusercontent.com/1423657/36921477-d3c68a5a-1e64-11e8-8301-9abac90cfc2f.png">
 # cqlsh-node
 ##### Minimal [Cassandra](https://github.com/apache/cassandra) CQLSH for NodeJS
 Provides `cqlshjs` command supporting basic CQLSH functionality

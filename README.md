@@ -2,7 +2,7 @@
 Minimal CQLSH emulator for Nodejs. Only supports basic functionality.
 
 ```
-  Usage: cqlsh -e "SELECT ... limit 1" 127.0.0.1:9042
+  Usage: cqlshjs -e "SELECT ... limit 1" 127.0.0.1:9042
 
 
   Options:

@@ -24,12 +24,16 @@ exports.db = function(program){
   }
 
   const query = program.execute || '';
-  try {
-  	client.execute(query)
+  client.execute(query)
   	  .then(function(result){
-		logger(toColumns(result.rows));
- 		logger("(%s Rows)", result.rows.length);
-	  	process.exit();
+		if(result.rows){
+		  logger(toColumns(result.rows));
+ 		  logger("(%s Rows)", result.rows.length);
+		}
+		return client.shutdown();
+	  })
+	  .catch(function (err) { 
+		logger('%s:red',err) 
+		return client.shutdown();
 	  });
-  } catch(e) { console.log(e); }
 }
